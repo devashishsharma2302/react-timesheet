@@ -1,0 +1,12 @@
+.timesheet-hour-box {
+    display: flex;
+    border: 2px solid lightgray;
+    justify-content: center;
+    align-items: center;
+
+    h3 {
+        font-size: large;
+        font-weight: 900;
+        align-self: center;
+    }
+}
