@@ -5,17 +5,19 @@ export default class TimesheetEntries extends Component {
 	//to validate the datatypes of props
 	static propTypes = {
     entries: React.PropTypes.array,
+		entryDeletionHandler: React.PropTypes.func,
   }
 
 	render() {
 
-		const { entries } = this.props
+		const { entries, entryDeletionHandler } = this.props
 		const rows = entries.map((entry, index) =>
 			<tr key={index}>
 				<th>{index+1}</th>
 				<td>{entry.projectCode}</td>
 				<td>{entry.activity}</td>
 				<td>{entry.hours}</td>
+				<td><button onClick={(index)=>entryDeletionHandler}>Delete</button></td>
 			</tr>
 		)
 
