@@ -3,12 +3,13 @@ import { shallow} from 'enzyme';
 import Timesheet from '../src/Timesheet';
 import TimesheetForm from '../src/TimesheetForm';
 import TimesheetEntries from '../src/TimesheetEntries'; 
+import TotalTime from '../src/TotalTime';
 
 describe('Tests for Timesheet App component', () => {
   const component = shallow(<Timesheet/>);
   let entryAddition =  component.instance().onEntryAddition
   const wrapper = shallow(<TimesheetForm entryAdditionHandler={entryAddition}/>);
-
+  
   it('Timesheet App state intialised.', () => {
       expect(component.state('entries').length).toEqual(0)
     });
@@ -23,6 +24,12 @@ describe('Tests for Timesheet App component', () => {
   it('Test Entry added', () => {
       wrapper.instance().triggerEntryAddition({preventDefault:()=>null});
       expect(component.state('entries').length).toEqual(1)
+    });
+
+  it('Test totaltime calculated',() => {
+    let entries = component.state('entries')
+    const totalTime = shallow(<TotalTime entries={entries} />);
+    expect(totalTime.text()).toEqual("Total hours spent: 10 hours")
     });
 
 })
