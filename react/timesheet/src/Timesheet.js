@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import TimesheetForm from './TimesheetForm'
 import Chart from './Chart'
 import TimesheetEntries from './TimesheetEntries'
+import HoursEntries from './HoursEntries'
 
 
 
@@ -29,7 +30,7 @@ export default class TimesheetApp extends Component {
 			entries: entries.concat(newEntry)
 		})
 	}
-
+		
 	generateChartData = (entryKey) => {
 		let chartData = []
 		this.state.entries.map(entry =>
@@ -78,6 +79,9 @@ class Timesheet extends Component {
 	      </div>
 				<div className="col-md-8 col-md-offset-2">
 	      	<TimesheetEntries entries={entries} />
+	      </div>
+				<div className="col-md-12 total-hrs">
+	      	<HoursEntries entries={entries}/>
 	      </div>
         <div className="col-md-10 col-md-offset-2">
           <Chart chartData={activityChartData} title="By Activity" />
