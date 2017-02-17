@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import TimesheetForm from './TimesheetForm'
 import Chart from './Chart'
 import TimesheetEntries from './TimesheetEntries'
+import TotalTime from './TotalTime'
 
 
 
@@ -78,6 +79,9 @@ class Timesheet extends Component {
 	      </div>
 				<div className="col-md-8 col-md-offset-2">
 	      	<TimesheetEntries entries={entries} />
+	      </div>
+	      <div className="col-md-3 col-md-offset-4 box">
+	      	<TotalTime entries={entries}/>
 	      </div>
         <div className="col-md-10 col-md-offset-2">
           <Chart chartData={activityChartData} title="By Activity" />
