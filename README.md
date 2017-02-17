@@ -28,5 +28,5 @@ This will create bundled files in a folder called build. Now to deploy your code
 
 ```
 cd build
-aws s3 sync . s3:://<your-bucket-name>
+aws s3 sync . s3://<your-bucket-name>
 ```
