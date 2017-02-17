@@ -3,8 +3,10 @@ import React, { Component } from 'react'
 import TimesheetForm from './TimesheetForm'
 import Chart from './Chart'
 import TimesheetEntries from './TimesheetEntries'
+import Totaltime from './Totaltime'
 
 
+console.log(Totaltime)
 
 export default class TimesheetApp extends Component {
 
@@ -39,7 +41,9 @@ export default class TimesheetApp extends Component {
 	}
 
 	render() {
+
   	const { entries } = this.state
+
   	return (
     	<Timesheet 
     		entryAdditionHandler={this.onEntryAddition}
@@ -58,6 +62,7 @@ class Timesheet extends Component {
   static propTypes = {
     entryAdditionHandler: React.PropTypes.func,
     entries: React.PropTypes.array,
+    totaltime: React.PropTypes.number,
     projectChartData: React.PropTypes.array,
     activityChartData: React.PropTypes.array
   }
@@ -69,6 +74,7 @@ class Timesheet extends Component {
 		  entries,
 		  projectChartData,
 		  activityChartData,
+		  totaltime
 		} = this.props
 
     return (
@@ -79,7 +85,10 @@ class Timesheet extends Component {
 				<div className="col-md-8 col-md-offset-2">
 	      	<TimesheetEntries entries={entries} />
 	      </div>
-        <div className="col-md-10 col-md-offset-2">
+	      <div className="totaltime"className="col-md-12 col-md-offset-4">
+	     	 	<Totaltime entries={entries}/> 
+	      </div>
+	      <div className="col-md-10 col-md-offset-2">
           <Chart chartData={activityChartData} title="By Activity" />
           <Chart chartData={projectChartData} title="By Project" />
         </div>
