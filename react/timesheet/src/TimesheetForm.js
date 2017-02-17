@@ -19,6 +19,7 @@ export default class TimesheetForm extends Component {
 
 	// Updates the current entry in the state
 	handleOnChange = (key, value) => {
+
 		let newEntry = JSON.parse(JSON.stringify(this.state.currentEntry))
 		newEntry[key] = value
 		this.setState({currentEntry: newEntry})
@@ -28,6 +29,7 @@ export default class TimesheetForm extends Component {
 	triggerEntryAddition = (e) => {
 		e.preventDefault()
 		this.props.entryAdditionHandler(this.state.currentEntry)
+    this.setState({currentEntry: {"projectCode": "", "activity": "", hours: 0}})
 	}
 
 	render() {
