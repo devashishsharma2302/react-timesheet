@@ -1,0 +1,35 @@
+.timesheet-table {
+  margin-top: 5%;
+  margin-left: 2%;
+
+  .ab {
+    padding: 20px;
+    border: 1px solid $grey;
+    font-size: 20px;
+    font-weight: bold;
+    width: 310px;
+    margin-left: 200px;
+     -webkit-box-shadow: 0 0 3px 1px rgba(0, 0, 0, .1);
+      -moz-box-shadow: 0 0 3px 1px rgba(0, 0, 0, .1);
+      box-shadow: 0 0 3px 1px rgba(0, 0, 0, .1);
+  }
+
+  .table {
+    box-shadow: 0 4px 8px 0 $grey , 0 6px 33px 0 $grey;
+  }
+
+  .table thead th {
+    background-color: $green;
+    border: 5px solid $white;
+    color: $white;
+    margin-bottom: 10%;
+  }
+
+  .table tbody tr {
+    color: #000;
+    background-color: $grey;
+    border: 5px solid $white;
+    margin-top: 10%;
+    font-size: 13px;
+  }
+}
