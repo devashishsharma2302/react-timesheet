@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 import TimesheetForm from './TimesheetForm'
 import Chart from './Chart'
 import TimesheetEntries from './TimesheetEntries'
-
+import TotalHours from './TotalHours';
 
 
 export default class TimesheetApp extends Component {
@@ -79,6 +79,7 @@ class Timesheet extends Component {
 				<div className="col-md-8 col-md-offset-2">
 	      	<TimesheetEntries entries={entries} />
 	      </div>
+				<TotalHours entries={entries} />
         <div className="col-md-10 col-md-offset-2">
           <Chart chartData={activityChartData} title="By Activity" />
           <Chart chartData={projectChartData} title="By Project" />
