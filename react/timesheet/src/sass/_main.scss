@@ -1,6 +1,7 @@
 @import 'variables';
 @import 'timesheetForm';
 @import 'timesheetEntries';
+@import 'totalTime';
 
 body {
   margin: 0;
@@ -10,11 +11,5 @@ body {
 
 .reports {
   margin-top: 5%;
-}
-
-.box {
-  border-style: groove;
-  text-align: center;
-  border: 2px solid #e0e0e0;
 }
 
