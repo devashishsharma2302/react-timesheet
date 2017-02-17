@@ -23,13 +23,26 @@ export default class TimesheetApp extends Component {
 	// Adds a new entry to the state
 	onEntryAddition = (newEntry) => {
 		let entries = JSON.parse(JSON.stringify(this.state.entries))
+		console.log('hi from entry addition')
+		console.log (entries.toString())
 		newEntry = JSON.parse(JSON.stringify(newEntry))
 		
 		this.setState({
 			entries: entries.concat(newEntry)
 		})
+
+		console.log (entries.toString())
 	}
 
+
+	calculateHours = () => {
+		
+		let h = 0;
+		for (let i=0;i < this.state.entries.length;++i){
+			h += Number(this.state.entries[i].hours);
+		}
+		return h;
+	}
 	generateChartData = (entryKey) => {
 		let chartData = []
 		this.state.entries.map(entry =>
@@ -46,6 +59,7 @@ export default class TimesheetApp extends Component {
     		projectChartData={this.generateChartData("projectCode")}
 				activityChartData={this.generateChartData("activity")}
 				entries={entries}
+				calculatedHours = {this.calculateHours()}
 			/>
     )
   }
@@ -59,7 +73,8 @@ class Timesheet extends Component {
     entryAdditionHandler: React.PropTypes.func,
     entries: React.PropTypes.array,
     projectChartData: React.PropTypes.array,
-    activityChartData: React.PropTypes.array
+    activityChartData: React.PropTypes.array,
+		calculatedHours : React.PropTypes.number,
   }
 
   render() {
@@ -69,6 +84,7 @@ class Timesheet extends Component {
 		  entries,
 		  projectChartData,
 		  activityChartData,
+			calculatedHours,
 		} = this.props
 
     return (
@@ -78,11 +94,17 @@ class Timesheet extends Component {
 	      </div>
 				<div className="col-md-8 col-md-offset-2">
 	      	<TimesheetEntries entries={entries} />
+					<div className="col-md-12 col-md-offset-5">
+						<h4> Total Hours : { calculatedHours }</h4>
+
+				</div>
 	      </div>
-        <div className="col-md-10 col-md-offset-2">
+        <div className="col-md-10 col-md-offset-2 totalhours">
           <Chart chartData={activityChartData} title="By Activity" />
           <Chart chartData={projectChartData} title="By Project" />
         </div>
+
+
 	    </div>
     );
   }
