@@ -79,6 +79,9 @@ class Timesheet extends Component {
 				<div className="col-md-8 col-md-offset-2">
 	      	<TimesheetEntries entries={entries} />
 	      </div>
+	      <div className="col-md-3 col-md-offset-4 box">
+	      	<h1>Box Here</h1>
+	      </div>
         <div className="col-md-10 col-md-offset-2">
           <Chart chartData={activityChartData} title="By Activity" />
           <Chart chartData={projectChartData} title="By Project" />
