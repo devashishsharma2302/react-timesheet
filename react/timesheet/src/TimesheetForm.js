@@ -28,6 +28,9 @@ export default class TimesheetForm extends Component {
 	triggerEntryAddition = (e) => {
 		e.preventDefault()
 		this.props.entryAdditionHandler(this.state.currentEntry)
+			this.state = {
+			currentEntry: {"projectCode": "", "activity": "", hours: 0}
+			}
 	}
 
 	render() {
@@ -35,7 +38,7 @@ export default class TimesheetForm extends Component {
 		const { currentEntry } = this.state
 
 		return (
-			<Form
+				<Form
 				onChangeHandler={this.handleOnChange}
 				triggerEntryAddition={this.triggerEntryAddition}
 				currentEntry={currentEntry}
