@@ -8,7 +8,7 @@ export default class TimesheetEntries extends Component {
   }
 
 	render() {
-
+		var t
 		const { entries } = this.props
 		const rows = entries.map((entry, index) =>
 			<tr key={index}>
@@ -18,8 +18,13 @@ export default class TimesheetEntries extends Component {
 				<td>{entry.hours}</td>
 			</tr>
 		)
+		
+		let hrs = 0
+		for(var i=0; i < entries.length; i++){
+			hrs += parseInt(entries[i].hours)
+		}
 
-
+		console.log(hrs	)
 		return (
 		<div className="timesheet-table">
 			<table className="table">
@@ -33,7 +38,7 @@ export default class TimesheetEntries extends Component {
 			  </thead>
 			  <tbody>
 			  	{(entries.length !== 0)?
-			  		rows
+						rows
 			  	:
 			  		<tr>
 			  			<th
@@ -42,8 +47,12 @@ export default class TimesheetEntries extends Component {
 					 		</th>
 					 	</tr>
 					}
+				
 			  </tbody>
 			</table>
+	<div style={{textAlign: 'center'}}>
+			<button type="button">Total Hours spent:{hrs}</button>
+			</div>
 		</div>
 			)
 	}
