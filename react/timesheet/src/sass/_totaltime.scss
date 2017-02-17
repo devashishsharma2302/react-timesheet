@@ -1,0 +1,14 @@
+.totalTimeContainer {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+
+    .totalTime {
+        width: 20%;
+        text-align: center;
+        border: 1px solid grey;
+        border-radius: 12px;
+        padding: 10px 5px;
+        font-weight: bold;
+    }     
+}

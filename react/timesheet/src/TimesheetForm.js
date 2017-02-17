@@ -8,7 +8,7 @@ export default class TimesheetForm extends Component {
 	constructor() {
 		super()
 		this.state = {
-			currentEntry: {"projectCode": "", "activity": "", hours: 0}
+			currentEntry: {projectCode: "", activity: "", hours: 0}
 		}
 	}
 
@@ -27,7 +27,14 @@ export default class TimesheetForm extends Component {
 	// Triggers entryAdditionHandler
 	triggerEntryAddition = (e) => {
 		e.preventDefault()
+		let newEntry = {
+			projectCode : "",
+			activity : "",
+			hours : 0
+		}
+		
 		this.props.entryAdditionHandler(this.state.currentEntry)
+		this.setState({currentEntry: newEntry})
 	}
 
 	render() {
